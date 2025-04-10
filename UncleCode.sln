@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UncleCode.Analyzer", "UncleCode.Analyzer\UncleCode.Analyzer\UncleCode.Analyzer.csproj", "{F3D2116E-3F24-4637-9DB5-EDFC295BE184}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UncleCode.Analyzer.Sample", "UncleCode.Analyzer\UncleCode.Analyzer.Sample\UncleCode.Analyzer.Sample.csproj", "{788037B9-4E66-4E1C-A3CE-EC8C17C3EAEC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F3D2116E-3F24-4637-9DB5-EDFC295BE184}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3D2116E-3F24-4637-9DB5-EDFC295BE184}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3D2116E-3F24-4637-9DB5-EDFC295BE184}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3D2116E-3F24-4637-9DB5-EDFC295BE184}.Release|Any CPU.Build.0 = Release|Any CPU
+		{788037B9-4E66-4E1C-A3CE-EC8C17C3EAEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{788037B9-4E66-4E1C-A3CE-EC8C17C3EAEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{788037B9-4E66-4E1C-A3CE-EC8C17C3EAEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{788037B9-4E66-4E1C-A3CE-EC8C17C3EAEC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
