@@ -1,0 +1,2 @@
+[*.cs]
+dotnet_sorting_corporate_prefixes = MyCompany1.,MyCompany2.

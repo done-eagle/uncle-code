@@ -26,16 +26,25 @@ namespace UncleCode.Analyzer
 			context.ConfigureGeneratedCodeAnalysis(GeneratedCodeAnalysisFlags.None);
 			context.EnableConcurrentExecution();
 			context.RegisterSyntaxNodeAction(AnalyzeUsings, SyntaxKind.CompilationUnit);
+			
 		}
 
 		private static void AnalyzeUsings(SyntaxNodeAnalysisContext context)
 		{
+			var syntaxTree = context.Node.SyntaxTree;
+
+			var prefixes = LoadCorporatePrefixes(context.Options, syntaxTree);
+
+			UsingDirectiveManager.SetCorporatePrefixes(prefixes);
+
 			var root = (CompilationUnitSyntax)context.Node;
 			var usings = root.Usings;
 
 			if (usings.Count == 0) return;
 
-			var sortedUsings = usings.OrderBy(UsingDirectivePriorityManager.GetUsingDirectivePriority).ToList();
+			var sortedUsings = usings
+				.OrderBy(u => (UsingDirectiveManager.GetUsingDirectivePriority(u), u.Name.ToString()))
+				.ToList();
 
 			for (var i = 0; i < usings.Count; i++)
 			{
@@ -46,5 +55,18 @@ namespace UncleCode.Analyzer
 				}
 			}
 		}
+
+		private static string[] LoadCorporatePrefixes(AnalyzerOptions options, SyntaxTree syntaxTree)
+		{
+			var config = options.AnalyzerConfigOptionsProvider.GetOptions(syntaxTree);
+
+			if (config.TryGetValue("dotnet_sorting_corporate_prefixes", out var rawPrefixes))
+			{
+				return rawPrefixes.Split(',').Select(p => p.Trim()).ToArray();
+			}
+
+			return [];
+		}
+
 	}
 }

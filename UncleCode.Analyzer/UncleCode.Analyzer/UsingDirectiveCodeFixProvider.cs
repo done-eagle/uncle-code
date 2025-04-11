@@ -39,7 +39,7 @@ namespace UncleCode.Analyzer
 		{
 			var compilationUnit = (CompilationUnitSyntax)root;
 			var sortedUsings = compilationUnit.Usings
-				.OrderBy(UsingDirectivePriorityManager.GetUsingDirectivePriority)
+				.OrderBy(u => (UsingDirectiveManager.GetUsingDirectivePriority(u), u.Name.ToString()))
 				.ToList();
 
 			var newRoot = compilationUnit.WithUsings(SyntaxFactory.List(sortedUsings));
